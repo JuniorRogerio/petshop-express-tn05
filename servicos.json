@@ -1,0 +1,16 @@
+[
+    {
+        "id": "3fc96720-0655-4458-addf-ee0b93c2430e",
+        "nome": "Banho e tosa",
+        "descricao": "banho completo",
+        "preco": "59",
+        "ilustracao": ""
+    },
+    {
+        "id": "08116224-15da-4a84-adb1-223f30175f8a",
+        "nome": "Aparar unhas",
+        "descricao": "corte de unhas",
+        "preco": "15",
+        "ilustracao": ""
+    }
+]
