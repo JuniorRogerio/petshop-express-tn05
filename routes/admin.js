@@ -3,6 +3,7 @@ const multer = require('multer'); //chama modulo multer (upload de arquivos para
 const path= require('path'); // chama modulo path (caminho de arquivos)
 const router = express.Router(); // chama metodo que gerencia rotas
 const servicosController = require('../controllers/servicosController');
+const validaCadastroServico = require('../middlewares/validacao/servico');
 
 const storage = multer.diskStorage({
     /** destino do upload */
@@ -33,8 +34,13 @@ router.get('/servicos', servicosController.index);
 router.get('/servicos/cadastro', servicosController.cadastro);
 
 /*http://localhost:3000/admin/servicos/cadastro */
-router.post('/servicos/cadastro', upload.single('ilustracao'), servicosController.salvar);
+router.post('/servicos/cadastro', upload.single('ilustracao'), validaCadastroServico, servicosController.salvar);
 
+/*http://localhost:3000/admin/servicos/editar */
+router.get('/servicos/editar/:id', servicosController.editar);
+
+/*http://localhost:3000/admin/servicos/editar/:id/?_method=PUT */
+router.put('/servicos/editar/:id', upload.single('ilustracao'), validaCadastroServico, servicosController.atualizar);
 
 /* exporta as rotas */
 module.exports = router;
